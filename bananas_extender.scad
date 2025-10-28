@@ -1,5 +1,8 @@
 include <NopSCADlib/utils/core/core.scad>
+include <NopSCADlib/vitamins/screws.scad>
 use <NopSCADlib/vitamins/jack.scad>
+use <NopSCADlib/printed/printed_box.scad>
+use <NopSCADlib/printed/foot.scad>
 
 
 outputs = 6;
@@ -14,10 +17,13 @@ side_offset = 14;
 output_banana_offset=7;
 output_banana_d = 9;
 
-w = 34;
+w = 36;
 h = 34;
 l = 2*side_offset + output_banana_offset * 2 * outputs;
 wall = 2;
+
+
+box1 = pbox(name = "box1", wall = wall, top_t = wall, base_t = 1, radius = 0, size = [l-2*wall, w-2*wall, h-4*wall], screw = M3_cap_screw);
 
 module output_positions() {
     translate([-l/2+output_banana_offset+side_offset, 0, 0]) {
@@ -29,11 +35,8 @@ module output_positions() {
     }
 }
 
-
-difference() {
-    cube([l, w, h], center=true);
-    translate([0, 0, -wall])
-        cube([l-2*wall, w-2*wall, h], center=true);
+difference() {    
+    rotate([180, 0, 0]) translate([0, 0, -h/2]) pbox(box1) {}
         
     // hole for input banana
     for(i = [-1, 1]) {
@@ -71,9 +74,17 @@ if($preview) {
     
     translate([-l/2, 0, -h/2 + input_banana_h])
     rotate([0, -90, 0]) {
-        translate([0, input_banana_spacing/2, 0])
-        jack_4mm("red", 3, "red");
-        translate([0, -input_banana_spacing/2, 0])
-        jack_4mm("black", 3, "black");
+        for(item = [[1, "red"], [-1, "black"]]) {
+            translate([0, item[0] * input_banana_spacing/2, 0]) {
+                jack_4mm(item[1], 3, item[1]);
+                
+                color([1, 0, 0])
+                translate([0, 0, -wall-1.5])
+                    nut(M6_half_nut);
+            }
+        }
     }
 }
+
+ //pbox_base(box1);
+    

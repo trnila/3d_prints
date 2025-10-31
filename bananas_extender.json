@@ -8,8 +8,20 @@
             "output_banana_offset": "7",
             "outputs": "6",
             "part": "box",
-            "side_offset": "14",
+            "side_offset_input": "14",
+            "side_offset_output": "14",
             "w": "36",
+            "wall": "2"
+        },
+        "top4_panel": {
+            "h": "34",
+            "input_banana_d": "4",
+            "output_banana_d": "9",
+            "output_banana_offset": "7",
+            "outputs": "4",
+            "panel": "true",
+            "part": "box",
+            "w": "50",
             "wall": "2"
         }
     }

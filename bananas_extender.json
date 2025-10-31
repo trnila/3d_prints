@@ -1,0 +1,16 @@
+{
+    "fileFormatVersion": "1",
+    "parameterSets": {
+        "top6": {
+            "h": "34",
+            "input_banana_d": "4",
+            "output_banana_d": "9",
+            "output_banana_offset": "7",
+            "outputs": "6",
+            "part": "box",
+            "side_offset": "14",
+            "w": "36",
+            "wall": "2"
+        }
+    }
+}

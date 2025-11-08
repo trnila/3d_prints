@@ -1,0 +1,33 @@
+{
+    "fileFormatVersion": "1",
+    "parameterSets": {
+        "knob": {
+            "$fn": "120",
+            "h_bot": "2",
+            "h_top": "10",
+            "hs": "1.52",
+            "knob_diameter": "14",
+            "knob_top_wall": "3",
+            "model": "knob",
+            "notch_count": "8",
+            "notch_depth": "1.5",
+            "sh": "0.76000000000000001",
+            "tol": "0.014999999999999999",
+            "wall": "0.5"
+        },
+        "shaft": {
+            "$fn": "120",
+            "h_bot": "2",
+            "h_top": "10",
+            "hs": "1.52",
+            "knob_diameter": "14",
+            "knob_top_wall": "3",
+            "model": "shaft",
+            "notch_count": "8",
+            "notch_depth": "1.5",
+            "sh": "0.76000000000000001",
+            "tol": "0.014999999999999999",
+            "wall": "0.5"
+        }
+    }
+}
